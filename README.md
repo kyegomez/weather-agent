@@ -1,74 +1,112 @@
-[![Multi-Modality](agorabanner.png)](https://discord.gg/qUtxnK2NMf)
+# Baron Weather
 
-# Multi-Agent Template App
-A radically simple, reliable, and high performance template to enable you to quickly get set up building multi-agent applications
+## Overview
+Baron Weather is a sophisticated toolset designed to enable real-time querying of weather data using the Baron API. It utilizes a swarm of autonomous agents to handle concurrent data requests, optimizing for efficiency and accuracy in weather data retrieval and analysis.
+
+## Features
+Baron Weather includes the following key features:
+- **Real-time Weather Data Access**: Instantly fetch and analyze weather conditions using the Baron API.
+- **Autonomous Agents**: A swarm system for handling multiple concurrent API queries efficiently.
+- **Data Visualization**: Tools for visualizing complex meteorological data for easier interpretation.
 
 
-
+## Prerequisites
+Before you begin, ensure you have met the following requirements:
+- Python 3.10 or newer
+- git installed on your machine
+- Install packages like swarms
 
 ## Installation
 
-You can install the package using pip
+There are 2 methods, git cloning which allows you to modify the codebase or pip install for simple usage:
+
+### Pip 
+`pip3 install -U weather-swarm`
+
+### Cloning the Repository
+To get started with Baron Weather, clone the repository to your local machine using:
 
 ```bash
-$ pip3 install -r requirements.txt
+git clone https://github.com/baronservices/weatherman_agent.git
+cd weatherman_agent
+```
+
+### Setting Up the Environment
+Create a Python virtual environment to manage dependencies:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+
+### Installing Dependencies
+Install the necessary Python packages via pip:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+To start querying the Baron Weather API using the autonomous agents, run:
+
+```bash
+python main.py
+```
+
+## API
+
+```bash
+python3 api.py
 ```
 
 
-### Code Quality 🧹
+### Llama3
 
-- `make style` to format the code
-- `make check_code_quality` to check code quality (PEP8 basically)
-- `black .`
-- `ruff . --fix`
+```python
+from swarms import llama3Hosted
 
-### Tests 🧪
 
-[`pytests`](https://docs.pytest.org/en/7.1.x/) is used to run our tests.
+# Example usage
+llama3 = llama3Hosted(
+    model="meta-llama/Meta-Llama-3-8B-Instruct",
+    temperature=0.8,
+    max_tokens=1000,
+    system_prompt="You are a helpful assistant.",
+)
 
-### Publish on PyPi 🚀
+completion_generator = llama3.run(
+    "create an essay on how to bake chicken"
+)
 
-**Important**: Before publishing, edit `__version__` in [src/__init__](/src/__init__.py) to match the wanted new version.
+print(completion_generator)
 
 ```
-poetry build
-poetry publish
-```
 
-### CI/CD 🤖
+# Documentation
+- [Llama3Hosted](docs/llama3_hosted.md)
 
-We use [GitHub actions](https://github.com/features/actions) to automatically run tests and check code quality when a new PR is done on `main`.
+## Contributing
+Contributions to Baron Weather are welcome and appreciated. Here's how you can contribute:
 
-On any pull request, we will check the code quality and tests.
-
-When a new release is created, we will try to push the new code to PyPi. We use [`twine`](https://twine.readthedocs.io/en/stable/) to make our life easier. 
-
-The **correct steps** to create a new realease are the following:
-- edit `__version__` in [src/__init__](/src/__init__.py) to match the wanted new version.
-- create a new [`tag`](https://git-scm.com/docs/git-tag) with the release name, e.g. `git tag v0.0.1 && git push origin v0.0.1` or from the GitHub UI.
-- create a new release from GitHub UI
-
-The CI will run when you create the new release.
-
-# Docs
-We use MK docs. This repo comes with the zeta docs. All the docs configurations are already here along with the readthedocs configs.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/YourAmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some YourAmazingFeature'`)
+4. Push to the Branch (`git push origin feature/YourAmazingFeature`)
+5. Open a Pull Request
 
 
+## Tests
+To run tests run the following:
 
-# License
-MIT
+`pytest`
+
+## Contact
+Project Maintainer - [Kye Gomez](mailto:kye@swarms.world) - [GitHub Profile](https://github.com/baronservices)
 
 
-# Citation
-Please cite Swarms in your paper or your project if you found it beneficial in any way! Appreciate you.
-
-```bibtex
-@misc{swarms,
-  author = {Gomez, Kye},
-  title = {{Swarms: The Multi-Agent Collaboration Framework}},
-  howpublished = {\url{https://github.com/kyegomez/swarms}},
-  year = {2023},
-  note = {Accessed: Date}
-}
-```
-
+# Todo
+- [ ] Add the schemas to the worker agents to output json
+- [ ] Implement the parser and the function calling mapping to execute the functions
+- [ ] Implement the HiearArchical Swarm and plug in and all the agents
+- [ ] Then, implement the API server wrapping the hiearchical swarm
+- [ ] Then, Deploy on the server 24/7
