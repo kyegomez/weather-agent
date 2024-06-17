@@ -1,7 +1,7 @@
 swarms
 pydantic==2.7.1
 base64==1.0.0
-datetime==4.3
+datetime==5.5
 hashlib==20081119
 hmac==20151222
 shutil==1.7.0
