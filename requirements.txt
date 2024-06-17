@@ -6,7 +6,7 @@ hashlib==20081119
 hmac==20151222
 shutil==1.7.0
 urllib3==1.26.7
-json5==0.9.6
+json5==0.9.25
 codecs==1.0.0
 fastapi
 pytest
