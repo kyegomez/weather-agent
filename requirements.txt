@@ -5,7 +5,7 @@ datetime==4.3
 hashlib==20081119
 hmac==20151222
 shutil==1.7.0
-urllib3==1.26.7
+urllib3==2.2.2
 json5==0.9.6
 codecs==1.0.0
 fastapi
