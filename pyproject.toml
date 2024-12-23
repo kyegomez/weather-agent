@@ -24,7 +24,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.10"
 swarms = "*"
-pydantic = "2.7.1"
+pydantic = "2.10.4"
 
 
 
